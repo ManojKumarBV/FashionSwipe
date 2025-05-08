@@ -59,7 +59,7 @@ export default function ProductCard({
       await Haptics.impact({ style: ImpactStyle.Medium });
       setTimeout(() => {
         onSwipeUp?.(product);
-        Toast({message: `${product.name} has been added to your cart.`, type: "success"})
+        Toast({ message: `${product.name} has been added to your cart.`, type: "success" })
       }, 300);
     } catch (error) {
       console.error('Haptic feedback error:', error);
@@ -72,7 +72,6 @@ export default function ProductCard({
     onSwipeUp: handleSwipeUp,
   });
 
-  // If triggered programmatically (from buttons)
   let animationClass = "";
   if (exit === "left") animationClass = "animate-swipe-left";
   if (exit === "right") animationClass = "animate-swipe-right";
@@ -83,68 +82,66 @@ export default function ProductCard({
     price,
     originalPrice,
     discountPercentage,
-    description,
     imageUrl,
     image,
     brand,
     category,
-    rating,
   } = product;
 
-  // Use imageUrl if available, otherwise fall back to image
   const productImage = imageUrl || image;
 
   return (
-    <div
-      ref={elementRef}
-      className={`swipe-card ${animationClass}`}
-      style={animationClass ? {} : style}
-    >
-      <img src={productImage} alt={name} className="swipe-image" />
-      <SwipeActions direction={swipe.direction} isDragging={swipe.isDragging} />
-      {discountPercentage && discountPercentage > 0 && (
-        <div className="absolute top-4 right-4 bg-primary text-white px-2 py-1 rounded-full text-xs font-bold">
-          -{discountPercentage}%
-        </div>
-      )}
+    <div className="flex flex-col items-center justify-center gap-y-4">
+      <div
+        ref={elementRef}
+        className={`swipe-card ${animationClass} w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl h-[450px] sm:h-[550px] md:h-[650px] lg:h-[500px] xl:h-[650px] mx-auto relative rounded-xl overflow-hidden shadow-lg`}
+        style={animationClass ? {} : style}
+      >
+        
+        <img
+          src={productImage}
+          alt={name}
+          className="w-full h-full object-cover"
+        />
 
-      <div className="swipe-content">
-        <span className="bg-primary/80 text-white text-xs px-2 py-0.5 rounded-full">
-          {brand}
-        </span>
-        <span className="bg-secondary/50 hover:bg-secondary/70 capitalize border-secondary text-xs px-2 py-0.5 m-2 gap-2 rounded-full">
-        {category || "Fashion"}
-        </span>
-        <div className="flex items-center gap-2">
-          <h2 className="text-sm font-bold line-clamp-1 capitalize">
-            {name ?? "Unnamed Product"}
-          </h2>
-        </div>
-        <div className="flex items-center gap-2 mb-3">
-          <span className="text-lg font-bold text-white">
-            ₹{price.toLocaleString()}
-          </span>
-
-          {originalPrice && originalPrice > price && (
-            <span className="text-sm line-through text-gray-400">
-              ₹{originalPrice.toLocaleString()}
-            </span>
-          )}
-        </div>
-
-        {/* {rating && (
-          <div className="flex items-center gap-1 mb-2">
-            <Star className="h-4 w-4 fill-yellow-500 text-yellow-500" />
-            <span className="text-sm">{rating.toFixed(1)}</span>
+        {discountPercentage && discountPercentage > 0 && (
+          <div className="absolute top-4 right-4 bg-primary text-white px-2 py-1 rounded-full text-xs font-bold">
+            -{discountPercentage}%
           </div>
-        )} */}
+        )}
 
-        {/* {description && (
-          <p className="text-sm line-clamp-2 opacity-90 mb-3">{description}</p>
-        )} */}
+        <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black via-black/70 to-transparent p-4 text-white">
+          <div className="flex gap-2 mt-1">
+            <span className="bg-primary/80 text-xs px-2 py-0.5 rounded-full">
+              {brand}
+            </span>
+            <span className="bg-secondary/50 capitalize border-secondary text-xs px-2 py-0.5 rounded-full">
+              {category || "Fashion"}
+            </span>
+          </div>
+          <div className="flex justify-between items-center">
+            <h2 className="text-lg font-bold line-clamp-1 capitalize">
+              {name ?? "Unnamed Product"}
+            </h2>
 
+          </div>
+          <div className="flex items-center gap-2 mb-3">
+            <span className="text-lg font-bold text-white">
+              ₹{price.toLocaleString()}
+            </span>
 
+            {originalPrice && originalPrice > price && (
+              <span className="text-sm line-through text-gray-400">
+                ₹{originalPrice.toLocaleString()}
+              </span>
+            )}
+          </div>
+
+        </div>
       </div>
     </div>
+
+
+
   );
 }
