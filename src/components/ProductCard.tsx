@@ -97,11 +97,16 @@ export default function ProductCard({
         className={`swipe-card ${animationClass} w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl h-[450px] sm:h-[550px] md:h-[650px] lg:h-[500px] xl:h-[650px] mx-auto relative rounded-xl overflow-hidden shadow-lg`}
         style={animationClass ? {} : style}
       >
-        
+
         <img
           src={productImage}
           alt={name}
           className="w-full h-full object-cover"
+        />
+
+        <SwipeActions
+          direction={swipe.direction}
+          isDragging={swipe.isDragging}
         />
 
         {discountPercentage && discountPercentage > 0 && (

@@ -134,15 +134,15 @@
   }
 
   .like-hint {
-    @apply top-4 left-4 border-green-500 text-green-500;
+    @apply border-green-500 text-green-500;
   }
 
   .pass-hint {
-    @apply top-4 right-4 border-red-500 text-red-500;
+    @apply border-red-500 text-red-500;
   }
 
   .cart-hint {
-    @apply top-4 left-1/2 -translate-x-1/2 border-blue-500 text-blue-500;
+    @apply border-blue-500 text-blue-500;
   }
 
   .card-container {

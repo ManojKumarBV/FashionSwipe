@@ -5,7 +5,7 @@ const config: CapacitorConfig = {
   appName: "Fashion Swipe",
   webDir: "dist",
   server: {
-    url: "http://192.168.1.4:8080/",
+    url: "https://fashion-swipe.vercel.app/",
     cleartext: true,
   },
   ios: {},
