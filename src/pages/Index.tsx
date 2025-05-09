@@ -29,9 +29,12 @@ const Index = () => {
                 {/* Branding Badge */}
                 <Badge
                   variant="outline"
-                  className="bg-transparent border-pink-500 text-pink-500 font-semibold"
+                  className="bg-transparent border-pink-500 text-pink-500 font-semibold text-sm"
                 >
-                  FashionSwipe
+                  <span className="font-serif">F</span>
+                  ashion {" "}
+                  <span className="font-serif">S</span>
+                  wipe
                 </Badge>
                 {/* Action Icons and Profile */}
                 <div className="flex gap-4 items-center xl:gap-6">
@@ -64,8 +67,8 @@ const Index = () => {
                   </div>
 
                   {/* Profile Icon */}
-                  <div className="w-8 h-8 rounded-full bg-gradient-to-r from-pink-500 to-purple-500 flex items-center justify-center shadow-lg">
-                    <span className="text-xs font-bold text-white">MK</span>
+                  <div className="w-8 h-8 rounded-full flex items-center bg-white justify-center shadow-lg">
+                    <span className="text-sm font-semibold text-black font-serif">FS</span>
                   </div>
                 </div>
               </header>

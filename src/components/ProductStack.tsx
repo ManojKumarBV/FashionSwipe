@@ -4,7 +4,6 @@ import { Product, getProducts } from "../data/products";
 import { Button } from "@/components/ui/button";
 import { Heart, X, ShoppingCart } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
-import { toast } from "sonner";
 import { Tooltip, TooltipTrigger, TooltipContent } from "@/components/ui/tooltip";
 import { useTouch } from "../hooks/use-touch";
 
@@ -165,12 +164,12 @@ export default function ProductStack({ onAddToCart, onLike }: ProductStackProps)
         onSwipeRight={() => {
           handleLike(currentProduct); 
           onLike?.(1);
-          toast.success('You have liked the product!')
+          console.log('You have liked the product!')
         }}
         onSwipeUp={() => {
           handleAddToCart(currentProduct);
           onAddToCart?.(1);
-          toast.success('Added to cart!');
+          console.log('Added to cart!');
         }}
         exit={exitDirection}
       />

@@ -6,16 +6,16 @@ export default function AnimatedPlaneBanner() {
       <motion.div
         className="absolute flex items-center gap-2"
         style={{ top: '50%', y: '-50%' }}
-        initial={{ x: '-120%'}}
+        initial={{ x: '-120%' }}
         animate={{ x: '120%' }}
         transition={{
-          duration: 12, 
+          duration: 12,
           repeat: Infinity,
           ease: 'linear',
         }}
       >
         <motion.div
-          className="bg-gradient-to-r from-pink-500 to-purple-500 text-gray-900 px-4 py-2 rounded-md shadow-lg flex items-center relative" 
+          className="bg-gradient-to-r from-pink-500 to-purple-500 text-gray-900 px-4 py-2 rounded-md shadow-lg flex items-center relative"
           initial={{ scale: 0.95, opacity: 0.85 }}
           animate={{
             scale: [1, 1.03, 1],
@@ -33,7 +33,8 @@ export default function AnimatedPlaneBanner() {
           }}
         >
           <span className="font-semibold text-lg tracking-normal">
-            FLASH SALE! Up to <strong className="text-white text-xl">70%</strong> off
+            <span className="font-serif">FLASH SALE!  </span>
+            Up to <strong className="text-white text-xl">70%</strong> off
           </span>
           <motion.span
             className="ml-1.5 text-xl"
