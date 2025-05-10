@@ -23,7 +23,7 @@ const Index = () => {
     <IonApp>
       <IonContent fullscreen={false}>
         <div className="container mx-auto">
-          <div className="pt-[env(safe-area-inset-top)] min-h-screen w-screen h-screen fixed top-0 left-0 bg-black/80 text-white">
+          <div className="pt-[env(safe-area-inset-top)] min-h-screen w-screen h-screen fixed top-0 left-0 bg-dark text-white">
             <div className="container px-4 py-2 mx-auto h-full flex flex-col">
               <header className="mb-4 px-4 py-2 flex items-center justify-between">
                 {/* Branding Badge */}

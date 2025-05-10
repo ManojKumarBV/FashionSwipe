@@ -2,10 +2,6 @@ import React, { useState } from "react";
 import { useSwipe } from "../hooks/useSwipe";
 import { SwipeActions } from "./SwipeActions";
 import { Product } from "../data/products";
-import { Badge } from "@/components/ui/badge";
-import { useToast } from "@/components/ui/use-toast";
-import { Check, Star } from "lucide-react";
-import Toast from "@/components/ui/moblie-toast";
 import { Haptics, ImpactStyle } from "@capacitor/haptics";
 
 interface ProductCardProps {
@@ -27,7 +23,6 @@ export default function ProductCard({
   onAddToCart,
   onLike,
 }: ProductCardProps) {
-  const { toast } = useToast();
   const [isExiting, setIsExiting] = useState(false);
 
   const handleSwipeLeft = () => {
@@ -43,10 +38,6 @@ export default function ProductCard({
       await Haptics.impact({ style: ImpactStyle.Light });
       setTimeout(() => {
         onSwipeRight?.(product);
-        toast({
-          title: "Product Liked",
-          description: `${product.name} has been added to your favorites.`,
-        });
       }, 300);
     } catch (error) {
       console.error('Haptic feedback error:', error);
@@ -59,7 +50,6 @@ export default function ProductCard({
       await Haptics.impact({ style: ImpactStyle.Medium });
       setTimeout(() => {
         onSwipeUp?.(product);
-        Toast({ message: `${product.name} has been added to your cart.`, type: "success" })
       }, 300);
     } catch (error) {
       console.error('Haptic feedback error:', error);
