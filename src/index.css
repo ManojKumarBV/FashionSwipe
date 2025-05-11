@@ -1,0 +1,171 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 0%;
+    --foreground: 0 0% 100%;
+
+    --card: 0 0% 10%;
+    --card-foreground: 0 0% 100%;
+
+    --popover: 0 0% 10%;
+    --popover-foreground: 0 0% 100%;
+
+    --primary: 346 78% 60%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 240 10% 16%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 240 5% 20%;
+    --muted-foreground: 240 5% 65%;
+
+    --accent: 240 5% 25%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 63% 45%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 240 5% 26%;
+    --input: 240 5% 26%;
+    --ring: 240 5% 35%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 10%;
+    --sidebar-foreground: 240 5% 95%;
+    --sidebar-primary: 224 76% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 5% 16%;
+    --sidebar-accent-foreground: 240 5% 96%;
+    --sidebar-border: 240 5% 16%;
+    --sidebar-ring: 217 92% 60%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer components {
+  .swipe-card {
+    @apply relative w-full max-w-sm aspect-[4/5] rounded-xl bg-card shadow-lg overflow-hidden touch-none;
+  }
+
+  .swipe-image {
+    @apply absolute inset-0 w-full h-full object-cover;
+  }
+
+  .swipe-content {
+    @apply absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/90 via-black/70 to-transparent text-white;
+  }
+
+  @keyframes planeMove {
+    0% {
+      transform: translateX(-100%) rotate(-45deg);
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateX(100%) rotate(45deg);
+      opacity: 0;
+    }
+  }
+
+  .animate-plane {
+    animation: planeMove 8s ease-in-out infinite;
+  }
+
+  .swipe-overlay {
+    @apply absolute inset-0 transition-opacity duration-300 pointer-events-none;
+  }
+
+  .swipe-action-hint {
+    @apply absolute flex items-center justify-center rounded-full w-16 h-16 border-4 text-3xl m-4;
+  }
+
+  .like-hint {
+    @apply border-green-500 text-green-500;
+  }
+
+  .pass-hint {
+    @apply border-red-500 text-red-500;
+  }
+
+  .cart-hint {
+    @apply border-blue-500 text-blue-500;
+  }
+
+  .card-container {
+    @apply relative flex items-center justify-center mx-auto h-full;
+  }
+
+  .swipe-button {
+    @apply rounded-full flex items-center justify-center shadow-lg focus:outline-none;
+  }
+
+  .swipe-button-like {
+    @apply bg-gradient-to-r from-green-400 to-green-500 text-white hover:from-green-500 hover:to-green-600;
+  }
+
+  .swipe-button-pass {
+    @apply bg-gradient-to-r from-red-400 to-red-500 text-white hover:from-red-500 hover:to-red-600;
+  }
+
+  .swipe-button-cart {
+    @apply bg-gradient-to-r from-blue-400 to-blue-500 text-white hover:from-blue-500 hover:to-blue-600;
+  }
+  
+  .action-button {
+    @apply rounded-full shadow-lg transition-transform hover:scale-110;
+  }
+}
